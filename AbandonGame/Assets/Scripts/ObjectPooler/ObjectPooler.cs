@@ -79,32 +79,10 @@ namespace Trollpants.UtilityBelt
 
         #region Unity methods
 
-        private void OnSpeedChanged(SpeedChanged speedChangedEvent)
-        {
-            foreach (Transform movingObject in transform)
-            {
-                MovingObject m = movingObject.GetComponent<MovingObject>();
-                if (m != null)
-                {
-                    m.Speed = -speedChangedEvent.newPlayerSpeed;
-                }
-            }            
-        }
-
         private void Awake()
         {
             _objectPoolTransform = gameObject.transform;
             _objectPoolTransform.name = "ObjectPooler";
-        }
-
-        private void OnEnable()
-        {
-            Events.instance.AddListener<SpeedChanged>(OnSpeedChanged);
-        }
-
-        private void OnDisable()
-        {
-            Events.instance.RemoveListener<SpeedChanged>(OnSpeedChanged);
         }
         #endregion /Unity methods
     }
