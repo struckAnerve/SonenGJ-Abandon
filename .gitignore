@@ -31,10 +31,3 @@ obj/
 .Trashes
 ehthumbs.db
 Thumbs.db
-
-
-# ============================ #
-# Visual Studio Debugging Tool #
-# ============================ #
-UnityVS/
-/UnityVS.meta
