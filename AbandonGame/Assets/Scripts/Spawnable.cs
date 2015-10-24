@@ -1,9 +1,9 @@
 ﻿using System.Xml;
 using System.Xml.Serialization;
 
-public class Spawnable {
-	
-	[XmlAttribute("name")]
+public class Spawnable{
+
+    [XmlAttribute("name")]
 	public string name;
 	
 	[XmlAttribute("initialSpawnProb")]

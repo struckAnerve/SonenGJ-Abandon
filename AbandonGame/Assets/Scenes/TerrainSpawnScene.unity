@@ -446,7 +446,7 @@ Transform:
   m_Children:
   - {fileID: 937892776}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!114 &606241404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1925,7 +1925,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 486252, guid: 6f51ebdc83f372c44855ac70f384983e, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 482736, guid: 6f51ebdc83f372c44855ac70f384983e, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 457196, guid: 6f51ebdc83f372c44855ac70f384983e, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6f51ebdc83f372c44855ac70f384983e, type: 2}
@@ -2049,7 +2057,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &1860581931 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 199756, guid: 2429565eec4ffad428d33c295991fd70, type: 2}
@@ -2087,6 +2095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnParent: {fileID: 1847097851}
   objectPooler: {fileID: 721059231}
+  tm: {fileID: 0}
   player: {fileID: 1524174956}
 --- !u!4 &1881253464
 Transform:
@@ -2099,7 +2108,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1001 &2068332133
 Prefab:
   m_ObjectHideFlags: 0

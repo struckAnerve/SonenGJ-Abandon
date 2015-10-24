@@ -15,3 +15,7 @@ public class AbandonerChanged : GameEvent
         this.newAbandoner = newAbandoner;
     }
 }
+public class ObjectDespawned : GameEvent
+{
+    public ObjectDespawned() { }
+}

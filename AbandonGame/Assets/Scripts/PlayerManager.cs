@@ -17,6 +17,7 @@ public class PlayerManager : MonoBehaviour {
                 numberOfPlayers++;
             }
         }
+        numberOfPlayers = Mathf.Clamp(numberOfPlayers, 1, 4);
         SpawnPlayers();
 	}
 	
