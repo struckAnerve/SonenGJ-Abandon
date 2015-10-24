@@ -15,13 +15,7 @@ public class TerrainManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         //centerTile.transform.position = verticalTile.transform.position + new Vector3(0, 0, tileSize);
-
-        MoveTilesUp();
-        MoveTilesDown();
-
-        MoveTilesRight();
-        MoveTilesLeft();
-
+        
     }
 	
 	// Update is called once per frame
@@ -65,7 +59,7 @@ public class TerrainManager : MonoBehaviour {
             }
             if (relativePlayerPos.x > tileSize + hTs)
             {
-                MoveTilesLeft();
+                MoveTilesRight();
             }
         }
         else if (relativePlayerPos.x > tileSize && relativePlayerPos.z > tileSize)
@@ -77,7 +71,7 @@ public class TerrainManager : MonoBehaviour {
             }
             if (relativePlayerPos.x > tileSize + hTs)
             {
-                MoveTilesLeft();
+                MoveTilesRight();
             }
         }
 
