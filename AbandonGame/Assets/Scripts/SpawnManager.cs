@@ -60,12 +60,14 @@ public class SpawnManager : MonoBehaviour {
 	void Spawn(string name){
 		Vector3 dir = player.GetComponent<Rigidbody>().velocity;
 		Vector3 camPos = Camera.main.transform.position;
+        Vector3 playerPos = player.GetComponent<Rigidbody>().position;
 
-		Quaternion playerRot = player.GetComponent<Rigidbody>().rotation;
+        Quaternion playerRot = player.GetComponent<Rigidbody>().rotation;
         Quaternion randomrot = Quaternion.Euler(0, Random.Range(-angleSpread / 2, angleSpread / 2), 0);
         
 		float spawnRad = Random.Range(minRadius, minRadius+radiusSpread);
         Vector3 spawnPos = playerRot * randomrot * Vector3.forward * spawnRad;
-		GameObject spawned = objectPooler.Spawn (name, spawnParent.transform, spawnPos + player.GetComponent<Rigidbody>().position, Quaternion.identity);
+		GameObject spawned = objectPooler.Spawn (name, spawnParent.transform, spawnPos + playerPos , Quaternion.identity);
+
 	}
 }
