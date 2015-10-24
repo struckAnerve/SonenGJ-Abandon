@@ -12,16 +12,15 @@ public class SpawnManager : MonoBehaviour {
 	float spIncr         = 0.1F;
 	float spreadRadius   =    5;
 
-	float angleSpread    = 60;
+	float angleSpread    = 90;
 
     //float minRadius      = 52F;
-    //float radiusSpread   = 10F;
+    //float radiusSpread   = 30F;
 
     float minRadius = 5F;
-    float radiusSpread   = 10F;
+    float radiusSpread   = 20F;
 
     public GameObject player;
-
 	float spawnTimer;
 
 	public SpawnableCollection collection;
@@ -68,6 +67,5 @@ public class SpawnManager : MonoBehaviour {
 		float spawnRad = Random.Range(minRadius, minRadius+radiusSpread);
         Vector3 spawnPos = playerRot * randomrot * Vector3.forward * spawnRad;
 		GameObject spawned = objectPooler.Spawn (name, spawnParent.transform, spawnPos + playerPos , Quaternion.identity);
-
 	}
 }
