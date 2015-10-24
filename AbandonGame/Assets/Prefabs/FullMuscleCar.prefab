@@ -82,6 +82,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &132758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 441968}
+  - 33: {fileID: 3310836}
+  - 23: {fileID: 2325988}
+  - 95: {fileID: 9570248}
+  - 114: {fileID: 11475450}
+  m_Layer: 0
+  m_Name: Dollar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &135694
 GameObject:
   m_ObjectHideFlags: 1
@@ -93,23 +112,6 @@ GameObject:
   - 95: {fileID: 9599004}
   m_Layer: 0
   m_Name: MuscleCar
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &143364
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 478896}
-  - 198: {fileID: 19857530}
-  - 199: {fileID: 19932008}
-  m_Layer: 0
-  m_Name: ParticleRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,6 +162,23 @@ GameObject:
   - 23: {fileID: 2331140}
   m_Layer: 0
   m_Name: WheelBR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &162722
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 408028}
+  - 198: {fileID: 19839328}
+  - 199: {fileID: 19991936}
+  m_Layer: 0
+  m_Name: ParticleRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -264,6 +283,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &408028
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162722}
+  m_LocalRotation: {x: -.448123068, y: .28379941, z: .491084993, w: .690998673}
+  m_LocalPosition: {x: .430000007, y: 0, z: .723999977}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 413464}
+  m_RootOrder: 2
 --- !u!4 &413464
 Transform:
   m_ObjectHideFlags: 1
@@ -276,8 +307,9 @@ Transform:
   m_Children:
   - {fileID: 494396}
   - {fileID: 472784}
-  - {fileID: 478896}
+  - {fileID: 408028}
   - {fileID: 434504}
+  - {fileID: 441968}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &414002
@@ -328,6 +360,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 413464}
   m_RootOrder: 3
+--- !u!4 &441968
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132758}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .0399932861, y: 1.13600004, z: -.119999997}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 413464}
+  m_RootOrder: 4
 --- !u!4 &443710
 Transform:
   m_ObjectHideFlags: 1
@@ -406,18 +450,6 @@ Transform:
   - {fileID: 443710}
   m_Father: {fileID: 413464}
   m_RootOrder: 1
---- !u!4 &478896
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143364}
-  m_LocalRotation: {x: -.448123068, y: .28379941, z: .491084993, w: .690998673}
-  m_LocalPosition: {x: .430000007, y: 0, z: .723999977}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 413464}
-  m_RootOrder: 2
 --- !u!4 &489020
 Transform:
   m_ObjectHideFlags: 1
@@ -482,6 +514,30 @@ MeshRenderer:
   m_ReceiveShadows: 1
   m_Materials:
   - {fileID: 2100000, guid: da70ac9dafab4224ca1e30ddf36e81a6, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!23 &2325988
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132758}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4207454c6fdba7843a8b6efdd9a85069, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -605,6 +661,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175892}
   m_Mesh: {fileID: 4300012, guid: 4517cb9bdf8d8b042899133c011942d0, type: 3}
+--- !u!33 &3310836
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132758}
+  m_Mesh: {fileID: 4300000, guid: 8f31deeaeed02cd44a6ac26886bfdf91, type: 3}
 --- !u!33 &3313432
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -723,6 +786,23 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!95 &9570248
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132758}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 8f31deeaeed02cd44a6ac26886bfdf91, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9599004
 Animator:
   serializedVersion: 3
@@ -804,6 +884,18 @@ MonoBehaviour:
   wheelColFR: {fileID: 14679050}
   wheelColRL: {fileID: 14696568}
   wheelColRR: {fileID: 14617816}
+--- !u!114 &11475450
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d4f313e6f4bf674b96e3081ebc08060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 90
 --- !u!146 &14617816
 WheelCollider:
   m_ObjectHideFlags: 1
@@ -920,12 +1012,12 @@ WheelCollider:
     m_AsymptoteValue: .75
     m_Stiffness: 4.5999999
   m_Enabled: 1
---- !u!198 &19857530
+--- !u!198 &19839328
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143364}
+  m_GameObject: {fileID: 162722}
   lengthInSec: 5
   startDelay: 0
   speed: 1
@@ -3006,12 +3098,12 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &19932008
+--- !u!199 &19972820
 ParticleSystemRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143364}
+  m_GameObject: {fileID: 175916}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -3042,12 +3134,12 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
---- !u!199 &19972820
+--- !u!199 &19991936
 ParticleSystemRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 175916}
+  m_GameObject: {fileID: 162722}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -3140,6 +3232,26 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: Loop
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_UseLightProbes
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalRotation.y
+      value: .235226959
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalRotation.w
+      value: .971940517
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: rotationSpeed
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
