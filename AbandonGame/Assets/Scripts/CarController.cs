@@ -17,6 +17,7 @@ public class CarController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rigidB = gameObject.GetComponent<Rigidbody>();
+        rigidB.centerOfMass = new Vector3(0, -0.5f, 0);
 	}
 	
 	// Update is called once per frame
