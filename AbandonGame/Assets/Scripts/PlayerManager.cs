@@ -47,10 +47,7 @@ public class PlayerManager : MonoBehaviour {
             CarController cc = Instantiate(car, carPos, Quaternion.Euler(carRot)) as CarController;
             cc.prefix = "P" + (i + 1);
 
-            if(i == abandoningPlayer)
-            {
-                Events.instance.Raise(new AbandonerChanged(cc.gameObject));
-            }
+            cc.IsAbandoning = i == abandoningPlayer;
         }
     }
 }

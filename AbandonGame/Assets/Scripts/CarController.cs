@@ -2,6 +2,19 @@
 using System.Collections;
 
 public class CarController : MonoBehaviour {
+    private bool isAbandoning;
+    public bool IsAbandoning
+    {
+        get { return isAbandoning; }
+        set
+        {
+            isAbandoning = value;
+            if(isAbandoning)
+            {
+                Events.instance.Raise(new AbandonerChanged(gameObject));
+            }
+        }
+    }
     public string prefix;
     public int motorMultiplier;
     public int steerAngle;
