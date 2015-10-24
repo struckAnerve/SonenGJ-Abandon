@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour {
         //Slerpingly follow object 
         desiredPos.x = objectToFollow.transform.position.x;
         desiredPos.z = objectToFollow.transform.position.z - cameraZOffset;
-        transform.position = Vector3.Slerp(transform.position, desiredPos, Time.fixedDeltaTime * Time.deltaTime);
+        transform.position = Vector3.Slerp(transform.position, desiredPos, Time.fixedDeltaTime * 2);
 
 
         //Clamp position so as to not fall too fra behind
