@@ -10,10 +10,12 @@ public class PlayerManager : MonoBehaviour {
     private float[] rotationOffset = new float[] { 0, 22, -22 };
 
 	void Start () {
-        numberOfPlayers = Input.GetJoystickNames().Length;
         foreach(string s in Input.GetJoystickNames())
         {
-            Debug.Log(s);
+            if(s.Length > 0)
+            {
+                numberOfPlayers++;
+            }
         }
         SpawnPlayers();
 	}
