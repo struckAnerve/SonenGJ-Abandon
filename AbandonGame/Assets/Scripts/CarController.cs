@@ -92,7 +92,6 @@ public class CarController : MonoBehaviour {
 
     public void CrashForce(Vector3 pos)
     {
-        //rigidB.velocity = Vector3.zero;
         rigidB.AddExplosionForce(500000, pos, 10, 0.075f);
     }
 
@@ -118,7 +117,6 @@ public class CarController : MonoBehaviour {
         {
             if(transform.up.y < -0.9f)
             {
-                Debug.Log("Torquing");
                 rigidB.AddTorque(transform.forward * 10000);
             }
         }
