@@ -65,7 +65,6 @@ public class CarController : MonoBehaviour {
         wheelColFL.steerAngle = currentSteerAngle * steerAngle;
         wheelColFR.steerAngle = currentSteerAngle * steerAngle;
 
-        Debug.Log(rigidB.velocity.magnitude * 60 * 60 / 1000);
         rigidB.AddForce(Vector3.down * 100 * Vector3.Magnitude(rigidB.velocity));
     }
 }

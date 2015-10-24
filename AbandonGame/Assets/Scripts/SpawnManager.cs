@@ -20,13 +20,18 @@ public class SpawnManager : MonoBehaviour {
     float minRadius = 5F;
     float radiusSpread   = 20F;
 
-    public GameObject player;
+    private GameObject player;
 	float spawnTimer;
 
 	public SpawnableCollection collection;
-	
-	// Use this for initialization
-	void Start () { 
+
+    void OnEnable()
+    {
+        Events.instance.AddListener<AbandonerChanged>(OnAbandonerChanged);
+    }
+
+    // Use this for initialization
+    void Start () { 
 		collection = new SpawnableCollection();
 		collection = collection.Load ("spawnables.xml");
 		Debug.Log (collection.spawnables[0].name);
@@ -68,4 +73,14 @@ public class SpawnManager : MonoBehaviour {
         Vector3 spawnPos = playerRot * randomrot * Vector3.forward * spawnRad;
 		GameObject spawned = objectPooler.Spawn (name, spawnParent.transform, spawnPos + playerPos , Quaternion.identity);
 	}
+
+    private void OnAbandonerChanged(AbandonerChanged e)
+    {
+        player = e.newAbandoner;
+    }
+
+    void OnDisable()
+    {
+        Events.instance.RemoveListener<AbandonerChanged>(OnAbandonerChanged);
+    }
 }

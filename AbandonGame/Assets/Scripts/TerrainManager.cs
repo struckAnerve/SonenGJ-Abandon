@@ -2,15 +2,19 @@
 using System.Collections;
 
 public class TerrainManager : MonoBehaviour {
-
     public GameObject verticalTile;
     public GameObject horizontalTile;
     public GameObject cornerTile;
     public GameObject centerTile;
 
-    public GameObject player;
+    private GameObject player;
 
     float tileSize = 500F;
+
+    void OnEnable()
+    {
+        Events.instance.AddListener<AbandonerChanged>(OnAbandonerChanged);
+    }
 
     // Use this for initialization
     void Start () {
@@ -151,4 +155,14 @@ public class TerrainManager : MonoBehaviour {
         centerTile.transform.position = horizontalTile.transform.position - new Vector3(tileSize, 0, 0);
     }
 
+
+    private void OnAbandonerChanged(AbandonerChanged e)
+    {
+        player = e.newAbandoner;
+    }
+
+    void OnDisable()
+    {
+        Events.instance.RemoveListener<AbandonerChanged>(OnAbandonerChanged);
+    }
 }
