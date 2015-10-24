@@ -5,3 +5,8 @@ using UnityEngine;
 
 public class GameEvent 
 { }
+
+public class ObjectDespawned : GameEvent
+{
+    public ObjectDespawned() { }
+}
