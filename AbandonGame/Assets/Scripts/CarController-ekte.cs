@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CarController : MonoBehaviour {
+public class CarController2 : MonoBehaviour {
     public string prefix;
     public int motorMultiplier;
     public int steerAngle;
     public int breakForce;
-    AudioSource engAudio;
 
     private Rigidbody rigidB;
     [SerializeField] private WheelCollider wheelColFL;
@@ -24,8 +23,6 @@ public class CarController : MonoBehaviour {
         rigidB.centerOfMass = new Vector3(0, -0.5f, 0);
 
         initialRearSidewaysFrictionStiffness = wheelColRL.sidewaysFriction.stiffness;
-
-        engAudio = GetComponent<AudioSource>();
 	}
 	
     void Update() {
@@ -56,8 +53,6 @@ public class CarController : MonoBehaviour {
             frictionCurve.stiffness = initialRearSidewaysFrictionStiffness;
             wheelColRR.sidewaysFriction = frictionCurve;
         }
-
-        engAudio.pitch = rigidB.velocity.magnitude / 39 + (float)0.6;
     }
 
     void FixedUpdate () {
@@ -70,7 +65,7 @@ public class CarController : MonoBehaviour {
         wheelColFL.steerAngle = currentSteerAngle * steerAngle;
         wheelColFR.steerAngle = currentSteerAngle * steerAngle;
 
-        Debug.Log(rigidB.velocity.magnitude * 60 * 60 / 1000);
+        //Debug.Log(rigidB.velocity.magnitude * 60 * 60 / 1000);
         rigidB.AddForce(Vector3.down * 100 * Vector3.Magnitude(rigidB.velocity));
     }
 }
