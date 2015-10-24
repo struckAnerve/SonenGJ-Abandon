@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class CarController : MonoBehaviour {
+    private bool startedAbandoningThisFrame;
     private bool isAbandoning;
     public bool IsAbandoning
     {
@@ -11,6 +12,7 @@ public class CarController : MonoBehaviour {
             isAbandoning = value;
             if(isAbandoning)
             {
+                startedAbandoningThisFrame = true;
                 Events.instance.Raise(new AbandonerChanged(gameObject));
             }
         }
@@ -42,6 +44,8 @@ public class CarController : MonoBehaviour {
 	}
 	
     void Update() {
+        startedAbandoningThisFrame = false;
+
         currentMotorTorque = Input.GetAxis(prefix + "_Forward") * motorMultiplier;
         currentMotorTorque -= Input.GetAxis(prefix + "_Reverse") * motorMultiplier;
 
@@ -52,10 +56,10 @@ public class CarController : MonoBehaviour {
             currentBreakForce = breakForce;
 
             WheelFrictionCurve frictionCurve = wheelColRL.sidewaysFriction;
-            frictionCurve.stiffness = 3.5f;
+            frictionCurve.stiffness = 3f;
             wheelColRL.sidewaysFriction = frictionCurve;
             frictionCurve = wheelColRR.sidewaysFriction;
-            frictionCurve.stiffness = 3.5f;
+            frictionCurve.stiffness = 3f;
             wheelColRR.sidewaysFriction = frictionCurve;
         }
         else if (Input.GetButtonUp(prefix + "_Break"))
@@ -86,15 +90,36 @@ public class CarController : MonoBehaviour {
         rigidB.AddForce(Vector3.down * 100 * Vector3.Magnitude(rigidB.velocity));
     }
 
+    public void CrashForce(Vector3 pos)
+    {
+        //rigidB.velocity = Vector3.zero;
+        rigidB.AddExplosionForce(500000, pos, 10, 0.075f);
+    }
+
     void OnCollisionEnter(Collision col)
     {
-        if(IsAbandoning)
+        if(IsAbandoning && !startedAbandoningThisFrame)
         {
             CarController colCar = col.gameObject.GetComponentInParent<CarController>();
             if(colCar != null)
-            {
+            { 
                 IsAbandoning = false;
                 colCar.IsAbandoning = true;
+
+                CrashForce(col.contacts[0].point);
+                colCar.CrashForce(col.contacts[0].point);
+            }
+        }
+    }
+
+    void OnCollisionStay(Collision col)
+    {
+        if(col.gameObject.GetComponent<TerrainCollider>() != null)
+        {
+            if(transform.up.y < -0.9f)
+            {
+                Debug.Log("Torquing");
+                rigidB.AddTorque(transform.forward * 10000);
             }
         }
     }
