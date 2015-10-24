@@ -11,6 +11,10 @@ public class PlayerManager : MonoBehaviour {
 
 	void Start () {
         numberOfPlayers = Input.GetJoystickNames().Length;
+        foreach(string s in Input.GetJoystickNames())
+        {
+            Debug.Log(s);
+        }
         SpawnPlayers();
 	}
 	
