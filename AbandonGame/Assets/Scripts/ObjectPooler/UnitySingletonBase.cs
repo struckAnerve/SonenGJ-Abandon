@@ -7,9 +7,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Trollpants.UtilityBelt
-{
-    using UnityEngine;
+ using UnityEngine;
 
     public abstract class UnitySingletonBase : MonoBehaviour
     {
@@ -17,4 +15,3 @@ namespace Trollpants.UtilityBelt
 
         protected abstract void OnApplicationQuit();
     }
-}

@@ -8,8 +8,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Trollpants.UtilityBelt
-{
+
     using UnityEngine;
 
     public class ObjectPooler : UnitySingleton<ObjectPooler>
@@ -86,4 +85,4 @@ namespace Trollpants.UtilityBelt
         }
         #endregion /Unity methods
     }
-}
+

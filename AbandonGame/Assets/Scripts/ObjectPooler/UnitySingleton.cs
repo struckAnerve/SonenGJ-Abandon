@@ -7,8 +7,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Trollpants.UtilityBelt
-{
+
 #if UNITY_EDITOR
     using UnityEditor;
 #endif
@@ -101,4 +100,4 @@ namespace Trollpants.UtilityBelt
             s_instance = null;
         }
     }
-}
+
