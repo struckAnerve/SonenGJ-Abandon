@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class CarController : MonoBehaviour {
+    public string prefix;
     public int motorMultiplier;
     public int steerAngle;
     public int breakForce;
@@ -25,12 +26,12 @@ public class CarController : MonoBehaviour {
 	}
 	
     void Update() {
-        currentMotorTorque = Input.GetAxis("Forward") * motorMultiplier;
-        currentMotorTorque -= Input.GetAxis("Reverse") * motorMultiplier;
+        currentMotorTorque = Input.GetAxis(prefix + "_Forward") * motorMultiplier;
+        currentMotorTorque -= Input.GetAxis(prefix + "_Reverse") * motorMultiplier;
 
-        currentSteerAngle = Input.GetAxis("Steer");
+        currentSteerAngle = Input.GetAxis(prefix + "_Steer");
 
-        if (Input.GetButtonDown("Break"))
+        if (Input.GetButtonDown(prefix + "_Break"))
         {
             currentBreakForce = breakForce;
 
@@ -41,7 +42,7 @@ public class CarController : MonoBehaviour {
             frictionCurve.stiffness = 3.5f;
             wheelColRR.sidewaysFriction = frictionCurve;
         }
-        else if (Input.GetButtonUp("Break"))
+        else if (Input.GetButtonUp(prefix + "_Break"))
         {
             currentBreakForce = 0;
 

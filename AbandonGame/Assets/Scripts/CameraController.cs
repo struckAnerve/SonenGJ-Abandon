@@ -11,6 +11,11 @@ public class CameraController : MonoBehaviour {
     private Vector3 desiredPos;
     private Vector3 clampedPos;
 
+    void OnEnable()
+    {
+        Events.instance.AddListener<AbandonerChanged>(OnAbandonerChanged);
+    }
+
     void Start()
     {
         desiredPos = transform.position;
@@ -29,4 +34,14 @@ public class CameraController : MonoBehaviour {
         clampedPos.z = Mathf.Clamp(transform.position.z, objectToFollow.transform.position.z - zMaxDistanceToPlayer, objectToFollow.transform.position.z - zMinDistanceToPlayer);
         transform.position = clampedPos;
 	}
+
+    private void OnAbandonerChanged(AbandonerChanged e)
+    {
+        objectToFollow = e.newAbandoner;
+    }
+
+    void OnDisable()
+    {
+        Events.instance.RemoveListener<AbandonerChanged>(OnAbandonerChanged);
+    }
 }
