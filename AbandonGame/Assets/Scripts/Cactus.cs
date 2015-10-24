@@ -9,8 +9,8 @@ public class Cactus : SpawnableSuperclass{
 	new void Start()
     {
         base.Start();
-        rb = thisCactus.GetComponent<Rigidbody>();
-        rb.centerOfMass = Vector3.down * 3.5f;
+        rb = thisCactus.GetComponentInChildren<Rigidbody>();
+        rb.centerOfMass = Vector3.down * 2.35f;
     }
     new void Update()
     {

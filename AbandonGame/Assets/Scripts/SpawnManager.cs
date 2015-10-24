@@ -19,7 +19,7 @@ public class SpawnManager : MonoBehaviour {
     float radiusSpread   = 10F;
 
     //float minRadius = 5F;
-    //float radiusSpread   = 20F;
+    //float radiusSpread   = 10F;
 
     private GameObject player;
 	float spawnTimer;
@@ -30,7 +30,6 @@ public class SpawnManager : MonoBehaviour {
 	public SpawnableCollection collection;
     void OnEnable()
     {
-            Debug.Log("HEI");
             Events.instance.AddListener<AbandonerChanged>(OnAbandonerChanged);
             Events.instance.AddListener<ObjectDespawned>(OnObjectDespawned);
     }
@@ -80,10 +79,11 @@ public class SpawnManager : MonoBehaviour {
 		float spawnRad = Random.Range(minRadius, minRadius+radiusSpread);
         Vector3 spawnPos = playerRot * randomrot * Vector3.forward * spawnRad;
 
+        // find temperary position above ground and use raycast to find correct position
         Vector3 tempPos = spawnPos + playerPos + Vector3.up * 20;
         RaycastHit hit;
         Physics.Raycast(tempPos, Vector3.down, out hit);
-        Vector3 finalPos = hit.point + Vector3.up * 4;
+        Vector3 finalPos = hit.point;
         GameObject spawned = objectPooler.Spawn(name, spawnParent.transform, finalPos, Quaternion.Euler(0, Random.Range(-90, 90), 0));
         spawnCount++;
     }

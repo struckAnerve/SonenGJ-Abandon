@@ -59,9 +59,6 @@
             if (g != null)
             {
                 g.name = prefabName;
-                var rigidBody = g.GetComponent<Rigidbody>();
-                rigidBody.velocity = Vector3.zero;
-                rigidBody.angularVelocity = Vector3.zero;
 
                 g.transform.SetParent(parent);
                 g.SetActive(true);
