@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b1783c81bea59a43b3df8230fbfcfc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisSpawnable: {fileID: 171304}
+  thisSpawnableObj: {fileID: 171304}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -111,6 +111,10 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: thisSpawnable
+      value: 
+      objectReference: {fileID: 171304}
+    - target: {fileID: 0}
+      propertyPath: thisSpawnableObj
       value: 
       objectReference: {fileID: 171304}
     m_RemovedComponents: []

@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b777f6ee1d404a4a9ab8da6e1f506a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisSpawnable: {fileID: 143050}
+  thisSpawnableObj: {fileID: 143050}
   thisCactus: {fileID: 143050}
 --- !u!1001 &100100000
 Prefab:
@@ -116,6 +116,10 @@ Prefab:
       objectReference: {fileID: 143050}
     - target: {fileID: 0}
       propertyPath: thisSpawnable
+      value: 
+      objectReference: {fileID: 143050}
+    - target: {fileID: 0}
+      propertyPath: thisSpawnableObj
       value: 
       objectReference: {fileID: 143050}
     m_RemovedComponents: []
