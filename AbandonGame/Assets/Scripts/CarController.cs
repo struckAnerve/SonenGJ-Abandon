@@ -85,4 +85,17 @@ public class CarController : MonoBehaviour {
         
         rigidB.AddForce(Vector3.down * 100 * Vector3.Magnitude(rigidB.velocity));
     }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if(IsAbandoning)
+        {
+            CarController colCar = col.gameObject.GetComponentInParent<CarController>();
+            if(colCar != null)
+            {
+                IsAbandoning = false;
+                colCar.IsAbandoning = true;
+            }
+        }
+    }
 }
