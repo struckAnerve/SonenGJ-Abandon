@@ -6,6 +6,7 @@ public class CarController : MonoBehaviour {
     public int motorMultiplier;
     public int steerAngle;
     public int breakForce;
+    AudioSource engAudio;
 
     private Rigidbody rigidB;
     [SerializeField] private WheelCollider wheelColFL;
@@ -23,6 +24,8 @@ public class CarController : MonoBehaviour {
         rigidB.centerOfMass = new Vector3(0, -0.5f, 0);
 
         initialRearSidewaysFrictionStiffness = wheelColRL.sidewaysFriction.stiffness;
+
+        engAudio = GetComponent<AudioSource>();
 	}
 	
     void Update() {
@@ -53,6 +56,8 @@ public class CarController : MonoBehaviour {
             frictionCurve.stiffness = initialRearSidewaysFrictionStiffness;
             wheelColRR.sidewaysFriction = frictionCurve;
         }
+
+        engAudio.pitch = rigidB.velocity.magnitude / 39 + (float)0.6;
     }
 
     void FixedUpdate () {
