@@ -12,6 +12,11 @@ ModelImporter:
     100008: WheelBackRight
     100010: WheelFrontLeft
     100012: WheelFrontRight
+    100014: Body
+    100016: WheelBL
+    100018: WheelBR
+    100020: WheelFL
+    100022: WheelFR
     400000: Body (3)
     400002: Glass
     400004: //RootNode
@@ -19,24 +24,44 @@ ModelImporter:
     400008: WheelBackRight
     400010: WheelFrontLeft
     400012: WheelFrontRight
+    400014: Body
+    400016: WheelBL
+    400018: WheelBR
+    400020: WheelFL
+    400022: WheelFR
     2300000: Body (3)
     2300002: Glass
     2300004: WheelBackLeft
     2300006: WheelBackRight
     2300008: WheelFrontLeft
     2300010: WheelFrontRight
+    2300012: Body
+    2300014: WheelBL
+    2300016: WheelBR
+    2300018: WheelFL
+    2300020: WheelFR
     3300000: Body (3)
     3300002: Glass
     3300004: WheelBackLeft
     3300006: WheelBackRight
     3300008: WheelFrontLeft
     3300010: WheelFrontRight
+    3300012: Body
+    3300014: WheelBL
+    3300016: WheelBR
+    3300018: WheelFL
+    3300020: WheelFR
     4300000: Glass
     4300002: WheelFrontRight
     4300004: WheelBackRight
     4300006: WheelFrontLeft
     4300008: WheelBackLeft
     4300010: Body (3)
+    4300012: WheelFL
+    4300014: WheelFR
+    4300016: WheelBL
+    4300018: WheelBR
+    4300020: Body
     7400000: Take 001
     9500000: //RootNode
   materials:
