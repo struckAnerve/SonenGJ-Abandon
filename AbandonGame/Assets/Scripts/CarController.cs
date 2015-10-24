@@ -28,6 +28,11 @@ public class CarController : MonoBehaviour {
     [SerializeField] private WheelCollider wheelColFR;
     [SerializeField] private WheelCollider wheelColRL;
     [SerializeField] private WheelCollider wheelColRR;
+    [SerializeField] private GameObject wheelFL;
+    [SerializeField] private GameObject wheelFR;
+    [SerializeField] private GameObject wheelRL;
+    [SerializeField] private GameObject wheelRR;
+    private Vector3 wheelSteeringAngle = Vector3.zero;
     private float currentMotorTorque;
     private float currentSteerAngle;
     private float initialRearSidewaysFrictionStiffness;
@@ -73,6 +78,18 @@ public class CarController : MonoBehaviour {
             frictionCurve.stiffness = initialRearSidewaysFrictionStiffness;
             wheelColRR.sidewaysFriction = frictionCurve;
         }
+
+        wheelSteeringAngle.y = wheelColFL.steerAngle;
+        wheelFL.transform.localRotation = Quaternion.Euler(wheelSteeringAngle);
+        wheelSteeringAngle.y = wheelColFR.steerAngle;
+        wheelFR.transform.localRotation = Quaternion.Euler(wheelSteeringAngle);
+
+        wheelFL.transform.Rotate(wheelColFL.rpm * 60 * Time.deltaTime, 0, 0);
+        wheelFR.transform.Rotate(wheelColFR.rpm * 60 * Time.deltaTime, 0, 0);
+        wheelRL.transform.Rotate(wheelColRL.rpm * 60 * Time.deltaTime, 0, 0);
+        wheelRR.transform.Rotate(wheelColRR.rpm * 60 * Time.deltaTime, 0, 0);
+
+        
 
         engAudio.pitch = rigidB.velocity.magnitude / 39 + (float)0.6;
     }

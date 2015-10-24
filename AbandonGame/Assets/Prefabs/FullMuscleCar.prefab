@@ -804,6 +804,10 @@ MonoBehaviour:
   wheelColFR: {fileID: 14679050}
   wheelColRL: {fileID: 14696568}
   wheelColRR: {fileID: 14617816}
+  wheelFL: {fileID: 175892}
+  wheelFR: {fileID: 145692}
+  wheelRL: {fileID: 100394}
+  wheelRR: {fileID: 151798}
 --- !u!146 &14617816
 WheelCollider:
   m_ObjectHideFlags: 1
