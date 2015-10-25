@@ -44,6 +44,7 @@ public class PlayerManager : MonoBehaviour {
             }
             CarController cc = Instantiate(car, carPos, Quaternion.Euler(carRot)) as CarController;
             Renderer r = cc.transform.Find("Visual").Find("MuscleCar").Find("Body").GetComponent<MeshRenderer>();
+            r.material = carMaterials[i];
             cc.playerNum = i + 1;
 
             cc.IsAbandoning = i == abandoningPlayer;
