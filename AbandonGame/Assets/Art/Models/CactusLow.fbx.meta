@@ -8,18 +8,23 @@ ModelImporter:
     100000: //RootNode
     100002: CactusBase
     100004: CactusTop
+    100006: CactusWhole
     400000: //RootNode
     400002: CactusBase
     400004: CactusTop
+    400006: CactusWhole
     2300000: //RootNode
     2300002: CactusBase
     2300004: CactusTop
+    2300006: CactusWhole
     3300000: //RootNode
     3300002: CactusBase
     3300004: CactusTop
+    3300006: CactusWhole
     4300000: CactusLow
     4300002: CactusBase
     4300004: CactusTop
+    4300006: CactusWhole
     7400000: Take 001
     9500000: //RootNode
   materials:
