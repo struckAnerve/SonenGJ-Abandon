@@ -178,6 +178,7 @@ GameObject:
   - 114: {fileID: 11426852}
   - 82: {fileID: 8224460}
   - 96: {fileID: 9630182}
+  - 82: {fileID: 8263390}
   m_Layer: 0
   m_Name: FullMuscleCar
   m_TagString: Untagged
@@ -724,6 +725,76 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!82 &8263390
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167352}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: eaaa441ff97173843b9ba2a4a512b1cf, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: .800000012
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 35
+  MaxDistance: 60
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: .583333313
+      value: 1
+      inSlope: -1.71497118
+      outSlope: -1.71497118
+      tangentMode: 0
+    - time: .820689678
+      value: .491666645
+      inSlope: -.583566725
+      outSlope: -.583566725
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: .75
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!95 &9599004
 Animator:
   serializedVersion: 3
@@ -801,6 +872,7 @@ MonoBehaviour:
   motorMultiplier: 2000
   steerAngle: 15
   breakForce: 1
+  honkSound: {fileID: 8263390}
   cashSound: {fileID: 8300000, guid: 7675ef77a39b4ca4a8369347b1b73852, type: 3}
   bodyMesh: {fileID: 2331124}
   wheelColFL: {fileID: 14618700}
@@ -3157,7 +3229,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Loop
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_UseLightProbes
@@ -3187,6 +3259,18 @@ Prefab:
       propertyPath: cashSound
       value: 
       objectReference: {fileID: 8300000, guid: 7675ef77a39b4ca4a8369347b1b73852, type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: honkSound
+      value: 
+      objectReference: {fileID: 8263390}
+    - target: {fileID: 0}
+      propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 167352}

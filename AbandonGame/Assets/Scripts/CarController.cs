@@ -22,6 +22,7 @@ public class CarController : MonoBehaviour {
     public int steerAngle;
     public int breakForce;
     AudioSource engAudio;
+    public AudioSource honkSound;
     public AudioClip cashSound;
 
     private Rigidbody rigidB;
@@ -91,6 +92,9 @@ public class CarController : MonoBehaviour {
                 frictionCurve = wheelColRR.sidewaysFriction;
                 frictionCurve.stiffness = initialRearSidewaysFrictionStiffness;
                 wheelColRR.sidewaysFriction = frictionCurve;
+            }
+            if (Input.GetButtonDown("P" + playerNum + "_Honk")) {
+                honkSound.Play();
             }
         }
         else
