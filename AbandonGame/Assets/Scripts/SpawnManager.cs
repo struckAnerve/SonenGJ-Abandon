@@ -13,13 +13,13 @@ public class SpawnManager : MonoBehaviour {
 	float spIncr         = 0.1F;
 	float spreadRadius   =    5;
 
-	float angleSpread    = 80;
+	float angleSpread    = 10;
 
-    float minRadius      = 60F;
-    float radiusSpread   = 10F;
-
-    //float minRadius = 5F;
+    //float minRadius      = 60F;
     //float radiusSpread   = 10F;
+
+    float minRadius = 5F;
+    float radiusSpread   = 10F;
 
     private GameObject player;
 	float spawnTimer;
