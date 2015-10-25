@@ -947,15 +947,15 @@ MonoBehaviour:
   crashSound2: {fileID: 8300000, guid: a1a956f42a0d2e4488c5631202306907, type: 3}
   honkSound: {fileID: 8263390}
   CrashSound: {fileID: 8297870}
-  bodyMesh: {fileID: 2331124, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
-  wheelColFL: {fileID: 14618700, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
-  wheelColFR: {fileID: 14679050, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
-  wheelColRL: {fileID: 14696568, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
-  wheelColRR: {fileID: 14617816, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
-  wheelFL: {fileID: 175892, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
-  wheelFR: {fileID: 145692, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
-  wheelRL: {fileID: 100394, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
-  wheelRR: {fileID: 151798, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
+  bodyMesh: {fileID: 2331124}
+  wheelColFL: {fileID: 14618700}
+  wheelColFR: {fileID: 14679050}
+  wheelColRL: {fileID: 14696568}
+  wheelColRR: {fileID: 14617816}
+  wheelFL: {fileID: 175892}
+  wheelFR: {fileID: 145692}
+  wheelRL: {fileID: 100394}
+  wheelRR: {fileID: 151798}
 --- !u!114 &11445780
 MonoBehaviour:
   m_ObjectHideFlags: 1
