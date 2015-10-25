@@ -179,9 +179,10 @@ GameObject:
   - 82: {fileID: 8224460}
   - 96: {fileID: 9630182}
   - 82: {fileID: 8263390}
+  - 82: {fileID: 8297870}
   m_Layer: 0
   m_Name: FullMuscleCar
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -795,6 +796,76 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!82 &8297870
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167352}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b97e9867c7547c3489858291314ffba9, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: .300000012
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 35
+  MaxDistance: 60
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: .583333313
+      value: 1
+      inSlope: -1.71497118
+      outSlope: -1.71497118
+      tangentMode: 0
+    - time: .820689678
+      value: .491666645
+      inSlope: -.583566725
+      outSlope: -.583566725
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: .75
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!95 &9599004
 Animator:
   serializedVersion: 3
@@ -872,17 +943,19 @@ MonoBehaviour:
   motorMultiplier: 2000
   steerAngle: 15
   breakForce: 1
+  crashSound1: {fileID: 8300000, guid: 1f1451fc505bcd140b6c15fffa5d5576, type: 3}
+  crashSound2: {fileID: 8300000, guid: a1a956f42a0d2e4488c5631202306907, type: 3}
   honkSound: {fileID: 8263390}
-  cashSound: {fileID: 8300000, guid: 7675ef77a39b4ca4a8369347b1b73852, type: 3}
-  bodyMesh: {fileID: 2331124}
-  wheelColFL: {fileID: 14618700}
-  wheelColFR: {fileID: 14679050}
-  wheelColRL: {fileID: 14696568}
-  wheelColRR: {fileID: 14617816}
-  wheelFL: {fileID: 175892}
-  wheelFR: {fileID: 145692}
-  wheelRL: {fileID: 100394}
-  wheelRR: {fileID: 151798}
+  CrashSound: {fileID: 8297870}
+  bodyMesh: {fileID: 2331124, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
+  wheelColFL: {fileID: 14618700, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
+  wheelColFR: {fileID: 14679050, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
+  wheelColRL: {fileID: 14696568, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
+  wheelColRR: {fileID: 14617816, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
+  wheelFL: {fileID: 175892, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
+  wheelFR: {fileID: 145692, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
+  wheelRL: {fileID: 100394, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
+  wheelRR: {fileID: 151798, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
 --- !u!114 &11445780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3270,6 +3343,62 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Pitch
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: crashSound1
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f1451fc505bcd140b6c15fffa5d5576, type: 3}
+    - target: {fileID: 0}
+      propertyPath: crashSound2
+      value: 
+      objectReference: {fileID: 8300000, guid: a1a956f42a0d2e4488c5631202306907, type: 3}
+    - target: {fileID: 0}
+      propertyPath: CrashSound
+      value: 
+      objectReference: {fileID: 8297870}
+    - target: {fileID: 0}
+      propertyPath: bodyMesh
+      value: 
+      objectReference: {fileID: 2331124, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
+    - target: {fileID: 0}
+      propertyPath: wheelColFL
+      value: 
+      objectReference: {fileID: 14618700, guid: 617925ceeba5c8b459c31b5d3344092a,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: wheelColFR
+      value: 
+      objectReference: {fileID: 14679050, guid: 617925ceeba5c8b459c31b5d3344092a,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: wheelColRL
+      value: 
+      objectReference: {fileID: 14696568, guid: 617925ceeba5c8b459c31b5d3344092a,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: wheelColRR
+      value: 
+      objectReference: {fileID: 14617816, guid: 617925ceeba5c8b459c31b5d3344092a,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: wheelFL
+      value: 
+      objectReference: {fileID: 175892, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
+    - target: {fileID: 0}
+      propertyPath: wheelFR
+      value: 
+      objectReference: {fileID: 145692, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
+    - target: {fileID: 0}
+      propertyPath: wheelRL
+      value: 
+      objectReference: {fileID: 100394, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
+    - target: {fileID: 0}
+      propertyPath: wheelRR
+      value: 
+      objectReference: {fileID: 151798, guid: 617925ceeba5c8b459c31b5d3344092a, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
