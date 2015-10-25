@@ -9,17 +9,17 @@ public class SpawnManager : MonoBehaviour {
 	public ObjectPooler objectPooler;
     public TerrainManager tm;
 
-	float spawnDelay     =    1;
+	float spawnDelay     =    3;
 	float spIncr         = 0.1F;
 	float spreadRadius   =    5;
 
-	float angleSpread    = 10;
+	float angleSpread    = 90;
 
     //float minRadius      = 60F;
     //float radiusSpread   = 10F;
 
     float minRadius = 5F;
-    float radiusSpread   = 10F;
+    float radiusSpread   = 30F;
 
     private GameObject player;
 	float spawnTimer;

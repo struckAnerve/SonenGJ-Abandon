@@ -332,10 +332,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 171304, guid: 6c8cf77d3997f37459713a2c54e20bf7, type: 2}
-      propertyPath: m_Name
-      value: Rock
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c8cf77d3997f37459713a2c54e20bf7, type: 2}
   m_IsPrefabParent: 0
@@ -749,7 +745,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39fb24ec773efb94ebf71d5c42a80ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToFollow: {fileID: 0}
 --- !u!114 &606241406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1076,6 +1071,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPool:
   - {fileID: 101608, guid: 24348fccddb66c8428bc675c2be66c63, type: 2}
+  - {fileID: 171304, guid: 6c8cf77d3997f37459713a2c54e20bf7, type: 2}
 --- !u!1001 &741187309
 Prefab:
   m_ObjectHideFlags: 0
