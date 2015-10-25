@@ -83,9 +83,12 @@ public class SpawnManager : MonoBehaviour {
         Vector3 tempPos = spawnPos + playerPos + Vector3.up * 20;
         RaycastHit hit;
         Physics.Raycast(tempPos, Vector3.down, out hit);
-        Vector3 finalPos = hit.point;
-        GameObject spawned = objectPooler.Spawn(name, spawnParent.transform, finalPos, Quaternion.Euler(0, Random.Range(-90, 90), 0));
-        spawnCount++;
+        Debug.Log(hit.transform.tag);
+        if (hit.transform.tag == "Terrain") { // check if it hits terrain, not cacti or rocks
+            Vector3 finalPos = hit.point;
+            GameObject spawned = objectPooler.Spawn(name, spawnParent.transform, finalPos, Quaternion.Euler(0, Random.Range(-90, 90), 0));
+            spawnCount++;
+        }
     }
 
     private void OnAbandonerChanged(AbandonerChanged e)
