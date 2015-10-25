@@ -3,5 +3,6 @@
   <Spawnables>
     <Spawnable name="Cactus" initialSpawnProb="0.65" />
     <Spawnable name="Rock" initialSpawnProb="0.25" />
+    <Spawnable name="Tumbleweed" initialSpawnProb="0.9" />
   </Spawnables>
 </SpawnableCollection>
