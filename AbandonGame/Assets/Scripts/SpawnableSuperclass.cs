@@ -25,8 +25,12 @@ public class SpawnableSuperclass : MonoBehaviour {
     }
     void Despawn()
     {
-        Events.instance.Raise(new ObjectDespawned());
-        Object.Destroy(thisSpawnableObj);
+        Events.instance.Raise(new ObjectDespawned(gameObject));
+        Reset();
+    }
+    protected virtual void Reset()
+    {
+
     }
 
 }

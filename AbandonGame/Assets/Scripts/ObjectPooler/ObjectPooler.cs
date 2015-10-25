@@ -70,12 +70,26 @@
 #endif
             return null;
         }
+        private void OnObjectDespawned(ObjectDespawned e)
+        {
+            e.objectToDespawn.SetActive(false);
+            e.objectToDespawn.transform.parent = transform;
+        }
 
-        #endregion /Public methods
 
-        #region Unity methods
+        void OnDisable()
+        {
+            Events.instance.RemoveListener<ObjectDespawned>(OnObjectDespawned);
+        }
 
-        private void Awake()
+    #endregion /Public methods
+
+    #region Unity methods
+    private void OnEnable()
+    {
+        Events.instance.AddListener<ObjectDespawned>(OnObjectDespawned);
+    }
+    private void Awake()
         {
             _objectPoolTransform = gameObject.transform;
             _objectPoolTransform.name = "ObjectPooler";

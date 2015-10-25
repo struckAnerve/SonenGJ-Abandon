@@ -8,13 +8,14 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 490978}
+  - 114: {fileID: 11429424}
   m_Layer: 0
   m_Name: Cactus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &138212
 GameObject:
   m_ObjectHideFlags: 1
@@ -44,7 +45,6 @@ GameObject:
   - 65: {fileID: 6502868}
   - 23: {fileID: 2388814}
   - 54: {fileID: 5472054}
-  - 114: {fileID: 11413318}
   m_Layer: 0
   m_Name: CactusWrapped
   m_TagString: Untagged
@@ -347,12 +347,12 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11413318
+--- !u!114 &11429424
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 160066}
+  m_GameObject: {fileID: 101608}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b777f6ee1d404a4a9ab8da6e1f506a2, type: 3}

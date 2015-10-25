@@ -9,9 +9,13 @@ public class Cactus : SpawnableSuperclass
     public GameObject cactusBase;
     public GameObject cactusTop;
     public GameObject cactusWhole;
+    private Transform topOrigTransform;
+    private Transform wholeOrigTransform;
     // Use this for initialization
     new void Start()
     {
+        topOrigTransform = cactusTop.transform;
+        wholeOrigTransform = cactusWhole.transform;
         base.Start();
         rb = thisSpawnableObj.GetComponentInChildren<Rigidbody>();
         rb.centerOfMass = Vector3.down * 2.3f;
@@ -55,6 +59,18 @@ public class Cactus : SpawnableSuperclass
                 //rb.AddTorque(Vector3.forward * 2);
             }
         }
+    }
+    protected override void Reset()
+    {
+
+        cactusTop.transform.position = topOrigTransform.position;
+        cactusTop.transform.rotation = topOrigTransform.rotation;
+        cactusWhole.transform.position = wholeOrigTransform.position;
+        cactusWhole.transform.rotation = wholeOrigTransform.rotation;
+        rb.velocity = Vector3.zero;
+        rb.constraints = RigidbodyConstraints.FreezePosition;
+        rb.centerOfMass = Vector3.down * 2.3f;
+        base.Reset();
     }
     void OnCollisionExit(Collision col)
     {

@@ -46,7 +46,8 @@ public class SpawnManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		spawnTimer += Time.deltaTime;
-        spawnDelay = 20 * Mathf.Exp(-0.132f * playerRigid.velocity.magnitude);
+        //spawnDelay = 20 * Mathf.Exp(-0.132f * playerRigid.velocity.magnitude);
+        spawnDelay = 2;
         if (spawnCount <= spawnMax)
         {
             if (spawnTimer >= spawnDelay)
@@ -98,6 +99,9 @@ public class SpawnManager : MonoBehaviour {
     {
         player = e.newAbandoner;
         playerRigid = player.GetComponent<Rigidbody>();
+    }
+    private void OnDespawn(GameObject despawnObject)
+    {
     }
 
     private void OnObjectDespawned(ObjectDespawned e)
