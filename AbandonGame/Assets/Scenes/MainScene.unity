@@ -991,7 +991,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPool:
-  - {fileID: 143050, guid: b50dd98a5f1f6ce43b7f641097bb5dc2, type: 2}
+  - {fileID: 101608, guid: 24348fccddb66c8428bc675c2be66c63, type: 2}
+  - {fileID: 171304, guid: 6c8cf77d3997f37459713a2c54e20bf7, type: 2}
 --- !u!117 &760787780
 Texture3D:
   m_ObjectHideFlags: 0
