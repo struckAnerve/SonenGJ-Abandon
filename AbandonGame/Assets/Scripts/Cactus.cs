@@ -3,15 +3,18 @@ using System.Collections;
 
 public class Cactus : SpawnableSuperclass
 {
-    public GameObject thisCactus;
     Rigidbody rb;
-    float MaxWindForce = 10f;
+    float MaxWindForce = 7f;
+
+    public GameObject cactusBase;
+    public GameObject cactusTop;
+    public GameObject cactusWhole;
     // Use this for initialization
     new void Start()
     {
         base.Start();
-        rb = thisCactus.GetComponentInChildren<Rigidbody>();
-        rb.centerOfMass = Vector3.down * 2.5f;
+        rb = thisSpawnableObj.GetComponentInChildren<Rigidbody>();
+        rb.centerOfMass = Vector3.down * 2.3f;
 
         rb.constraints = RigidbodyConstraints.FreezePosition;
     }
@@ -22,19 +25,19 @@ public class Cactus : SpawnableSuperclass
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.AddTorque(Vector3.back * Random.Range(4, MaxWindForce));
+        rb.AddTorque(Vector3.back * Random.Range(5, MaxWindForce));
     }
     void OnCollisionEnter(Collision col)
     {
         CarController cc = col.gameObject.GetComponent<CarController>();
 
-        if (cc != null)
+        if (cc != null) //CRASH!
         {
 
             Vector3 colVel = col.rigidbody.velocity;
-            Vector3 dampForce = colVel.normalized * -300000;
+            Vector3 dampForce = colVel.normalized * -500000;
             float colSpeed = colVel.magnitude;
-            if (colSpeed < 10)
+            if (colSpeed < 10) // not fast enough!
             {
                 rb.constraints = RigidbodyConstraints.FreezePosition;
             }
@@ -45,6 +48,9 @@ public class Cactus : SpawnableSuperclass
 
                 rb.centerOfMass = Vector3.zero;
                 col.rigidbody.AddForce(dampForce);
+                cactusBase.SetActive(true);
+                cactusTop.SetActive(true);
+                cactusWhole.SetActive(false);
 
                 //rb.AddTorque(Vector3.forward * 2);
             }
