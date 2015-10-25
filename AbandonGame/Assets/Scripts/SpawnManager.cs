@@ -9,16 +9,16 @@ public class SpawnManager : MonoBehaviour {
 	public ObjectPooler objectPooler;
     public TerrainManager tm;
 
-	float spawnDelay     =    3;
+	float spawnDelay     =    2;
 	float spIncr         = 0.1F;
 	float spreadRadius   =    5;
 
-	float angleSpread    = 90;
+	float angleSpread    = 10;
 
     //float minRadius      = 60F;
     //float radiusSpread   = 10F;
 
-    float minRadius = 5F;
+    float minRadius = 10F;
     float radiusSpread   = 30F;
 
     private GameObject player;
@@ -103,4 +103,5 @@ public class SpawnManager : MonoBehaviour {
         Events.instance.RemoveListener<AbandonerChanged>(OnAbandonerChanged);
         Events.instance.RemoveListener<ObjectDespawned>(OnObjectDespawned);
     }
+
 }

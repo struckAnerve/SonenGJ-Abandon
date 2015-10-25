@@ -5,7 +5,7 @@ public class Cactus : SpawnableSuperclass
 {
     public GameObject thisCactus;
     Rigidbody rb;
-    float MaxWindForce = 5f;
+    float MaxWindForce = 10f;
     // Use this for initialization
     new void Start()
     {
@@ -34,7 +34,7 @@ public class Cactus : SpawnableSuperclass
             Vector3 colVel = col.rigidbody.velocity;
             Vector3 dampForce = colVel.normalized * -300000;
             float colSpeed = colVel.magnitude;
-            if (colSpeed < 15)
+            if (colSpeed < 10)
             {
                 rb.constraints = RigidbodyConstraints.FreezePosition;
             }
