@@ -6,6 +6,12 @@ using UnityEngine;
 public class GameEvent 
 { }
 
+public class GameStarted : GameEvent
+{ }
+
+public class GameRestarted : GameEvent
+{ }
+
 public class PlayerWon : GameEvent
 {
     public int playerNum;
@@ -37,6 +43,4 @@ public class AbandonerChanged : GameEvent
 }
 
 public class ObjectDespawned : GameEvent
-{
-    public ObjectDespawned() { }
-}
+{ }

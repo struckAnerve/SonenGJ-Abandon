@@ -15,12 +15,6 @@ public class TerrainManager : MonoBehaviour {
     {
         Events.instance.AddListener<AbandonerChanged>(OnAbandonerChanged);
     }
-
-    // Use this for initialization
-    void Start () {
-        //centerTile.transform.position = verticalTile.transform.position + new Vector3(0, 0, tileSize);
-        
-    }
 	
 	// Update is called once per frame
 	void Update () {

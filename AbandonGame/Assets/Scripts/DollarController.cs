@@ -6,7 +6,6 @@ public class DollarController : MonoBehaviour {
     public Vector3 offset;
     private GameObject abandoningPlayer;
 
-	
     void OnEnable()
     {
         Events.instance.AddListener<AbandonerChanged>(OnAbandonerChanged);

@@ -35,7 +35,7 @@ public class SpawnManager : MonoBehaviour {
     }
 
 	// Use this for initialization
-	void Start () { 
+	void Awake () { 
 		collection = new SpawnableCollection();
 		collection = collection.Load ("spawnables.xml");
 		spawnTimer = spawnDelay;

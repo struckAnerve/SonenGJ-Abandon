@@ -38,15 +38,23 @@ public class CarController : MonoBehaviour {
     private float currentSteerAngle;
     private float initialRearSidewaysFrictionStiffness;
     private int currentBreakForce;
+    private bool lostControl;
 
     private float timeOutOfFrame;
 
-    // Use this for initialization
+    void OnEnable()
+    {
+        Events.instance.AddListener<PlayerWon>(OnPlayerWon);
+        Events.instance.AddListener<GameRestarted>(OnGameRestarted);
+    }
+
     void Start () {
         rigidB = gameObject.GetComponent<Rigidbody>();
         rigidB.centerOfMass = new Vector3(0, -0.5f, 0);
 
         initialRearSidewaysFrictionStiffness = wheelColRL.sidewaysFriction.stiffness;
+
+        lostControl = false;
 
         engAudio = GetComponent<AudioSource>();
 	}
@@ -54,32 +62,41 @@ public class CarController : MonoBehaviour {
     void Update() {
         startedAbandoningThisFrame = false;
 
-        currentMotorTorque = Input.GetAxis("P" + playerNum + "_Forward") * motorMultiplier;
-        currentMotorTorque -= Input.GetAxis("P" + playerNum + "_Reverse") * motorMultiplier;
-
-        currentSteerAngle = Input.GetAxis("P" + playerNum + "_Steer");
-
-        if (Input.GetButtonDown("P" + playerNum + "_Break"))
+        if (!lostControl)
         {
-            currentBreakForce = breakForce;
+            currentMotorTorque = Input.GetAxis("P" + playerNum + "_Forward") * motorMultiplier;
+            currentMotorTorque -= Input.GetAxis("P" + playerNum + "_Reverse") * motorMultiplier;
 
-            WheelFrictionCurve frictionCurve = wheelColRL.sidewaysFriction;
-            frictionCurve.stiffness = 3f;
-            wheelColRL.sidewaysFriction = frictionCurve;
-            frictionCurve = wheelColRR.sidewaysFriction;
-            frictionCurve.stiffness = 3f;
-            wheelColRR.sidewaysFriction = frictionCurve;
+            currentSteerAngle = Input.GetAxis("P" + playerNum + "_Steer");
+
+            if (Input.GetButtonDown("P" + playerNum + "_Break"))
+            {
+                currentBreakForce = breakForce;
+
+                WheelFrictionCurve frictionCurve = wheelColRL.sidewaysFriction;
+                frictionCurve.stiffness = 3f;
+                wheelColRL.sidewaysFriction = frictionCurve;
+                frictionCurve = wheelColRR.sidewaysFriction;
+                frictionCurve.stiffness = 3f;
+                wheelColRR.sidewaysFriction = frictionCurve;
+            }
+            else if (Input.GetButtonUp("P" + playerNum + "_Break"))
+            {
+                currentBreakForce = 0;
+
+                WheelFrictionCurve frictionCurve = wheelColRL.sidewaysFriction;
+                frictionCurve.stiffness = initialRearSidewaysFrictionStiffness;
+                wheelColRL.sidewaysFriction = frictionCurve;
+                frictionCurve = wheelColRR.sidewaysFriction;
+                frictionCurve.stiffness = initialRearSidewaysFrictionStiffness;
+                wheelColRR.sidewaysFriction = frictionCurve;
+            }
         }
-        else if (Input.GetButtonUp("P" + playerNum + "_Break"))
+        else
         {
+            currentMotorTorque = 0;
+            currentSteerAngle = 0;
             currentBreakForce = 0;
-
-            WheelFrictionCurve frictionCurve = wheelColRL.sidewaysFriction;
-            frictionCurve.stiffness = initialRearSidewaysFrictionStiffness;
-            wheelColRL.sidewaysFriction = frictionCurve;
-            frictionCurve = wheelColRR.sidewaysFriction;
-            frictionCurve.stiffness = initialRearSidewaysFrictionStiffness;
-            wheelColRR.sidewaysFriction = frictionCurve;
         }
 
         wheelSteeringAngle.y = wheelColFL.steerAngle;
@@ -93,21 +110,6 @@ public class CarController : MonoBehaviour {
         wheelRR.transform.Rotate(wheelColRR.rpm * 60 * Time.deltaTime, 0, 0);
 
         engAudio.pitch = rigidB.velocity.magnitude / 39 + (float)0.6;
-
-        /*
-        if(!bodyMesh.isVisible)
-        {
-            Debug.Log("OutOfFrame");
-            timeOutOfFrame += Time.deltaTime;
-        }
-        else
-        {
-            timeOutOfFrame = 0;
-        }
-        if(!IsAbandoning && timeOutOfFrame > 1.5f)
-        {
-            Destroy(gameObject);
-        }*/
     }
 
     void FixedUpdate () {
@@ -153,5 +155,21 @@ public class CarController : MonoBehaviour {
                 rigidB.AddTorque(transform.forward * 10000);
             }
         }
+    }
+
+    private void OnPlayerWon(PlayerWon e)
+    {
+        lostControl = true;
+    }
+
+    private void OnGameRestarted(GameRestarted e)
+    {
+        Destroy(gameObject);
+    }
+
+    void OnDisable()
+    {
+        Events.instance.RemoveListener<PlayerWon>(OnPlayerWon);
+        Events.instance.RemoveListener<GameRestarted>(OnGameRestarted);
     }
 }

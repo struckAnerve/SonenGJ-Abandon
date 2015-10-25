@@ -13,29 +13,20 @@ public class PlayerManager : MonoBehaviour {
 
     void OnEnable()
     {
+        Events.instance.AddListener<GameStarted>(OnGameStarted);
+        Events.instance.AddListener<GameRestarted>(OnGameRestarted);
         Events.instance.AddListener<AbandonerChanged>(OnAbandonerChanged);
         Events.instance.AddListener<PlayerGotAbandoned>(OnPlayerGotAbandoned);
     }
-
-	void Start () {
-        foreach(string s in Input.GetJoystickNames())
-        {
-            if(s.Length > 0)
-            {
-                numberOfPlayers++;
-            }
-        }
-        numberOfPlayers = Mathf.Clamp(numberOfPlayers, 1, 4);
-        playersLeft = numberOfPlayers;
-        SpawnPlayers();
-	}
 
     private void SpawnPlayers()
     {
         int abandoningPlayer = Random.Range(0, numberOfPlayers);
         for(int i = 0; i < numberOfPlayers; i++)
         {
-            Vector3 carPos = car.transform.position;
+            Vector3 carPos = Camera.main.transform.position;
+            carPos.y -= 34.6f;
+            carPos.z += 20;
             Vector3 carRot = car.transform.rotation.eulerAngles;
             if (i < abandoningPlayer)
             {
@@ -56,6 +47,31 @@ public class PlayerManager : MonoBehaviour {
         }
     }
 
+    private void StartGame()
+    {
+        numberOfPlayers = 0;
+        foreach (string s in Input.GetJoystickNames())
+        {
+            if (s.Length > 0)
+            {
+                numberOfPlayers++;
+            }
+        }
+        numberOfPlayers = Mathf.Clamp(numberOfPlayers, 1, 4);
+        playersLeft = numberOfPlayers;
+        SpawnPlayers();
+    }
+
+    private void OnGameStarted(GameStarted e)
+    {
+        StartGame();
+    }
+
+    private void OnGameRestarted(GameRestarted e)
+    {
+        StartGame();
+    }
+
     private void OnAbandonerChanged(AbandonerChanged e)
     {
         abandoningPlayerNum = e.newAbandoner.GetComponent<CarController>().playerNum;
@@ -66,13 +82,14 @@ public class PlayerManager : MonoBehaviour {
         numberOfPlayers--;
         if(numberOfPlayers == 1)
         {
-            Debug.Log("Player " + abandoningPlayerNum + " won!");
             Events.instance.Raise(new PlayerWon(abandoningPlayerNum));
         }
     }
 
     void OnDisable()
     {
+        Events.instance.RemoveListener<GameStarted>(OnGameStarted);
+        Events.instance.RemoveListener<GameRestarted>(OnGameRestarted);
         Events.instance.RemoveListener<AbandonerChanged>(OnAbandonerChanged);
         Events.instance.RemoveListener<PlayerGotAbandoned>(OnPlayerGotAbandoned);
     }

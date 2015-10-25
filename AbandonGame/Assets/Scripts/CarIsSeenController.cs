@@ -11,7 +11,6 @@ public class CarIsSeenController : MonoBehaviour {
             GameObject car = transform.root.gameObject;
             if (!car.GetComponent<CarController>().IsAbandoning)
             {
-                Debug.Log("Player " + car.GetComponent<CarController>().playerNum + " lost");
                 Events.instance.Raise(new PlayerGotAbandoned(car.GetComponent<CarController>().playerNum));
                 Destroy(car);
             }
