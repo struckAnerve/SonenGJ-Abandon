@@ -21,9 +21,12 @@ public class CarController : MonoBehaviour {
     public int motorMultiplier;
     public int steerAngle;
     public int breakForce;
+
     AudioSource engAudio;
+    public AudioClip crashSound1;
+    public AudioClip crashSound2;
     public AudioSource honkSound;
-    public AudioClip cashSound;
+    public AudioSource CrashSound;
 
     private Rigidbody rigidB;
     [SerializeField] private MeshRenderer bodyMesh;
@@ -147,9 +150,13 @@ public class CarController : MonoBehaviour {
 
                 CrashForce(col.contacts[0].point);
                 colCar.CrashForce(col.contacts[0].point);
-
-                SoundManager.instance.PlaySingle(cashSound);
+                
+                CrashSound.Play();
+                Debug.Log("Krash");
             }
+        }
+        if(!IsAbandoning && col.gameObject.tag == "Player") {
+            SoundManager.instance.RandomizeSFX(crashSound1, crashSound2);
         }
     }
 

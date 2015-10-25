@@ -16,10 +16,14 @@ public class SoundManager : MonoBehaviour {
     public void PlaySingle(AudioClip clip) {
         FXSource.clip = clip;
         FXSource.Play();
+        Debug.Log("Clip played");
     }
-	
-	// Update is called once per frame
-	void Update() {
-	
-	}
+
+    public void RandomizeSFX(params AudioClip[] clips) {
+        int randomIndex = Random.Range(0, clips.Length);
+        float randomPitch = Random.Range(.95f, 1.05f);
+        FXSource.pitch = randomPitch;
+        FXSource.clip = clips[randomIndex];
+        FXSource.Play();
+    }
 }
