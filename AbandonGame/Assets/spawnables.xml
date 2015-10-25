@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <SpawnableCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Spawnables>
-    <Spawnable name="Cactus" initialSpawnProb="0.5" />
+    <Spawnable name="Cactus" initialSpawnProb="0.65" />
     <Spawnable name="Rock" initialSpawnProb="0.25" />
   </Spawnables>
 </SpawnableCollection>
