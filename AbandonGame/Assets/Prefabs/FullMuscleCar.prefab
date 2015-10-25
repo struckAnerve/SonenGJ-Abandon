@@ -27,6 +27,7 @@ GameObject:
   - 4: {fileID: 463964}
   - 33: {fileID: 3301566}
   - 23: {fileID: 2331124}
+  - 114: {fileID: 11445780}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -796,10 +797,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 718a7140488ecdf45818be93f67d77f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefix: 
+  playerNum: 0
   motorMultiplier: 2000
   steerAngle: 15
   breakForce: 1
+  bodyMesh: {fileID: 2331124}
   wheelColFL: {fileID: 14618700}
   wheelColFR: {fileID: 14679050}
   wheelColRL: {fileID: 14696568}
@@ -808,6 +810,17 @@ MonoBehaviour:
   wheelFR: {fileID: 145692}
   wheelRL: {fileID: 100394}
   wheelRR: {fileID: 151798}
+--- !u!114 &11445780
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff0bce39997a6b448ad435a62952445f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!146 &14617816
 WheelCollider:
   m_ObjectHideFlags: 1

@@ -17,13 +17,14 @@ public class CarController : MonoBehaviour {
             }
         }
     }
-    public string prefix;
+    public int playerNum;
     public int motorMultiplier;
     public int steerAngle;
     public int breakForce;
     AudioSource engAudio;
 
     private Rigidbody rigidB;
+    [SerializeField] private MeshRenderer bodyMesh;
     [SerializeField] private WheelCollider wheelColFL;
     [SerializeField] private WheelCollider wheelColFR;
     [SerializeField] private WheelCollider wheelColRL;
@@ -38,6 +39,8 @@ public class CarController : MonoBehaviour {
     private float initialRearSidewaysFrictionStiffness;
     private int currentBreakForce;
 
+    private float timeOutOfFrame;
+
     // Use this for initialization
     void Start () {
         rigidB = gameObject.GetComponent<Rigidbody>();
@@ -51,12 +54,12 @@ public class CarController : MonoBehaviour {
     void Update() {
         startedAbandoningThisFrame = false;
 
-        currentMotorTorque = Input.GetAxis(prefix + "_Forward") * motorMultiplier;
-        currentMotorTorque -= Input.GetAxis(prefix + "_Reverse") * motorMultiplier;
+        currentMotorTorque = Input.GetAxis("P" + playerNum + "_Forward") * motorMultiplier;
+        currentMotorTorque -= Input.GetAxis("P" + playerNum + "_Reverse") * motorMultiplier;
 
-        currentSteerAngle = Input.GetAxis(prefix + "_Steer");
+        currentSteerAngle = Input.GetAxis("P" + playerNum + "_Steer");
 
-        if (Input.GetButtonDown(prefix + "_Break"))
+        if (Input.GetButtonDown("P" + playerNum + "_Break"))
         {
             currentBreakForce = breakForce;
 
@@ -67,7 +70,7 @@ public class CarController : MonoBehaviour {
             frictionCurve.stiffness = 3f;
             wheelColRR.sidewaysFriction = frictionCurve;
         }
-        else if (Input.GetButtonUp(prefix + "_Break"))
+        else if (Input.GetButtonUp("P" + playerNum + "_Break"))
         {
             currentBreakForce = 0;
 
@@ -89,9 +92,22 @@ public class CarController : MonoBehaviour {
         wheelRL.transform.Rotate(wheelColRL.rpm * 60 * Time.deltaTime, 0, 0);
         wheelRR.transform.Rotate(wheelColRR.rpm * 60 * Time.deltaTime, 0, 0);
 
-        
-
         engAudio.pitch = rigidB.velocity.magnitude / 39 + (float)0.6;
+
+        /*
+        if(!bodyMesh.isVisible)
+        {
+            Debug.Log("OutOfFrame");
+            timeOutOfFrame += Time.deltaTime;
+        }
+        else
+        {
+            timeOutOfFrame = 0;
+        }
+        if(!IsAbandoning && timeOutOfFrame > 1.5f)
+        {
+            Destroy(gameObject);
+        }*/
     }
 
     void FixedUpdate () {

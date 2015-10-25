@@ -5,9 +5,17 @@ public class PlayerManager : MonoBehaviour {
     public CarController car;
 
     private int numberOfPlayers;
+    private int playersLeft;
+    private int abandoningPlayerNum;
     private float[] xPositionOffset = new float[] { 0, -20, 20 };
     private float[] zPositionOffset = new float[] { -15, -10, -10 };
     private float[] rotationOffset = new float[] { 0, 22, -22 };
+
+    void OnEnable()
+    {
+        Events.instance.AddListener<AbandonerChanged>(OnAbandonerChanged);
+        Events.instance.AddListener<PlayerGotAbandoned>(OnPlayerGotAbandoned);
+    }
 
 	void Start () {
         foreach(string s in Input.GetJoystickNames())
@@ -18,11 +26,8 @@ public class PlayerManager : MonoBehaviour {
             }
         }
         numberOfPlayers = Mathf.Clamp(numberOfPlayers, 1, 4);
+        playersLeft = numberOfPlayers;
         SpawnPlayers();
-	}
-	
-	void Update () {
-	
 	}
 
     private void SpawnPlayers()
@@ -45,9 +50,30 @@ public class PlayerManager : MonoBehaviour {
                 carRot.y += rotationOffset[i - 1];
             }
             CarController cc = Instantiate(car, carPos, Quaternion.Euler(carRot)) as CarController;
-            cc.prefix = "P" + (i + 1);
+            cc.playerNum = i + 1;
 
             cc.IsAbandoning = i == abandoningPlayer;
         }
+    }
+
+    private void OnAbandonerChanged(AbandonerChanged e)
+    {
+        abandoningPlayerNum = e.newAbandoner.GetComponent<CarController>().playerNum;
+    }
+
+    private void OnPlayerGotAbandoned(PlayerGotAbandoned e)
+    {
+        numberOfPlayers--;
+        if(numberOfPlayers == 1)
+        {
+            Debug.Log("Player " + abandoningPlayerNum + " won!");
+            Events.instance.Raise(new PlayerWon(abandoningPlayerNum));
+        }
+    }
+
+    void OnDisable()
+    {
+        Events.instance.RemoveListener<AbandonerChanged>(OnAbandonerChanged);
+        Events.instance.RemoveListener<PlayerGotAbandoned>(OnPlayerGotAbandoned);
     }
 }
