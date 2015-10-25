@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerManager : MonoBehaviour {
     public CarController car;
+    public List<Material> carMaterials;
 
     private int numberOfPlayers;
     private int playersLeft;
@@ -41,6 +43,7 @@ public class PlayerManager : MonoBehaviour {
                 carRot.y += rotationOffset[i - 1];
             }
             CarController cc = Instantiate(car, carPos, Quaternion.Euler(carRot)) as CarController;
+            Renderer r = cc.transform.Find("Visual").Find("MuscleCar").Find("Body").GetComponent<MeshRenderer>();
             cc.playerNum = i + 1;
 
             cc.IsAbandoning = i == abandoningPlayer;
