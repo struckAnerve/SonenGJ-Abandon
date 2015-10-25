@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class PlayerManager : MonoBehaviour {
     public CarController car;
     public List<Material> carMaterials;
+    [SerializeField] private Renderer carWonRenderer;
 
     private int numberOfPlayers;
     private int playersLeft;
@@ -86,6 +87,7 @@ public class PlayerManager : MonoBehaviour {
         numberOfPlayers--;
         if(numberOfPlayers == 1)
         {
+            carWonRenderer.material = carMaterials[abandoningPlayerNum-1];
             Events.instance.Raise(new PlayerWon(abandoningPlayerNum));
         }
     }
