@@ -9,17 +9,17 @@ public class SpawnManager : MonoBehaviour {
 	public ObjectPooler objectPooler;
     public TerrainManager tm;
 
-	float spawnDelay     =    2;
+	float spawnDelay     = 0.5f;
 	float spIncr         = 0.1F;
 	float spreadRadius   =    5;
 
-	float angleSpread    = 10;
+	float angleSpread    = 90;
 
     //float minRadius      = 60F;
     //float radiusSpread   = 10F;
 
-    float minRadius = 10F;
-    float radiusSpread   = 30F;
+    float minRadius = 60F;
+    float radiusSpread   = 10F;
 
     private GameObject player;
 	float spawnTimer;
@@ -28,6 +28,8 @@ public class SpawnManager : MonoBehaviour {
     int spawnCount;
 
 	public SpawnableCollection collection;
+
+    private Rigidbody playerRigid;
     void OnEnable()
     {
             Events.instance.AddListener<AbandonerChanged>(OnAbandonerChanged);
@@ -38,17 +40,18 @@ public class SpawnManager : MonoBehaviour {
 	void Awake () { 
 		collection = new SpawnableCollection();
 		collection = collection.Load ("spawnables.xml");
-		spawnTimer = spawnDelay;
+		spawnTimer = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		spawnTimer -= Time.deltaTime;
+		spawnTimer += Time.deltaTime;
+        spawnDelay = 20 * Mathf.Exp(-0.132f * playerRigid.velocity.magnitude);
         if (spawnCount <= spawnMax)
         {
-            if (spawnTimer <= 0)
+            if (spawnTimer >= spawnDelay)
             {
-                spawnTimer = spawnDelay;
+                spawnTimer = 0;
                 foreach (Spawnable spawnable in collection.spawnables)
                 {
                     if (SpawnCheck(spawnable.initialSpawnProb, spawnable.failedSpawnCount))
@@ -94,6 +97,7 @@ public class SpawnManager : MonoBehaviour {
     private void OnAbandonerChanged(AbandonerChanged e)
     {
         player = e.newAbandoner;
+        playerRigid = player.GetComponent<Rigidbody>();
     }
 
     private void OnObjectDespawned(ObjectDespawned e)
