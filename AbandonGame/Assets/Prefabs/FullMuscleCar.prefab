@@ -801,6 +801,7 @@ MonoBehaviour:
   motorMultiplier: 2000
   steerAngle: 15
   breakForce: 1
+  cashSound: {fileID: 8300000, guid: 7675ef77a39b4ca4a8369347b1b73852, type: 3}
   bodyMesh: {fileID: 2331124}
   wheelColFL: {fileID: 14618700}
   wheelColFR: {fileID: 14679050}
@@ -3105,7 +3106,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: bc7eb4a768251f44895bb66716fc1258, type: 3}
+      objectReference: {fileID: 8300000, guid: eaaa441ff97173843b9ba2a4a512b1cf, type: 3}
     - target: {fileID: 0}
       propertyPath: MinDistance
       value: 35
@@ -3182,6 +3183,10 @@ Prefab:
       propertyPath: breakForce
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: cashSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7675ef77a39b4ca4a8369347b1b73852, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 167352}

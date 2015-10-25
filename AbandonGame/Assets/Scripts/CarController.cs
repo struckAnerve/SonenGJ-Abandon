@@ -22,6 +22,7 @@ public class CarController : MonoBehaviour {
     public int steerAngle;
     public int breakForce;
     AudioSource engAudio;
+    public AudioClip cashSound;
 
     private Rigidbody rigidB;
     [SerializeField] private MeshRenderer bodyMesh;
@@ -109,7 +110,7 @@ public class CarController : MonoBehaviour {
         wheelRL.transform.Rotate(wheelColRL.rpm * 60 * Time.deltaTime, 0, 0);
         wheelRR.transform.Rotate(wheelColRR.rpm * 60 * Time.deltaTime, 0, 0);
 
-        engAudio.pitch = rigidB.velocity.magnitude / 39 + (float)0.6;
+        engAudio.pitch = rigidB.velocity.magnitude / 32 + (float)0.6;
     }
 
     void FixedUpdate () {
@@ -142,6 +143,8 @@ public class CarController : MonoBehaviour {
 
                 CrashForce(col.contacts[0].point);
                 colCar.CrashForce(col.contacts[0].point);
+
+                SoundManager.instance.PlaySingle(cashSound);
             }
         }
     }
