@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class CameraController : MonoBehaviour {
-    public GameObject objectToFollow;
+    private GameObject objectToFollow;
 
     private const float cameraZOffset = 20;
     private const float zMaxDistanceToPlayer = 20 + cameraZOffset;

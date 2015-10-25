@@ -6,6 +6,26 @@ using UnityEngine;
 public class GameEvent 
 { }
 
+public class PlayerWon : GameEvent
+{
+    public int playerNum;
+
+    public PlayerWon(int playerNum)
+    {
+        this.playerNum = playerNum;
+    }
+}
+
+public class PlayerGotAbandoned : GameEvent
+{
+    public int playerNum;
+
+    public PlayerGotAbandoned(int playerNum)
+    {
+        this.playerNum = playerNum;
+    }
+}
+
 public class AbandonerChanged : GameEvent
 {
     public GameObject newAbandoner;
@@ -15,6 +35,7 @@ public class AbandonerChanged : GameEvent
         this.newAbandoner = newAbandoner;
     }
 }
+
 public class ObjectDespawned : GameEvent
 {
     public ObjectDespawned() { }
