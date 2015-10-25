@@ -72,8 +72,8 @@
         }
         private void OnObjectDespawned(ObjectDespawned e)
         {
-            e.objectToDespawn.SetActive(false);
-            e.objectToDespawn.transform.parent = transform;
+            //e.objectToDespawn.SetActive(false);
+            //e.objectToDespawn.transform.parent = transform;
         }
 
 

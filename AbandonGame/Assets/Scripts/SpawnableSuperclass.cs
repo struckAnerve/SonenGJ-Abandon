@@ -4,9 +4,10 @@ using System.Collections;
 public class SpawnableSuperclass : MonoBehaviour {
     public GameObject thisSpawnableObj;
     float despawnDist = 120f;
+    protected GameObject baseObject;
     // Use this for initialization
-    protected void Start() {
-
+    protected virtual void Start() {
+        baseObject = gameObject;
     }
 	
 	// Update is called once per frame
@@ -25,8 +26,9 @@ public class SpawnableSuperclass : MonoBehaviour {
     }
     void Despawn()
     {
-        Events.instance.Raise(new ObjectDespawned(gameObject));
-        Reset();
+        Events.instance.Raise(new ObjectDespawned(baseObject));
+        Destroy(gameObject);
+        //Reset();
     }
     protected virtual void Reset()
     {

@@ -85,6 +85,10 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &137364466 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 175044, guid: 24348fccddb66c8428bc675c2be66c63, type: 2}
+  m_PrefabInternal: {fileID: 303957913}
 --- !u!1001 &154141032
 Prefab:
   m_ObjectHideFlags: 0
@@ -170,7 +174,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11429424, guid: 24348fccddb66c8428bc675c2be66c63, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 24348fccddb66c8428bc675c2be66c63, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &303957914 stripped
@@ -401,6 +406,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 490978, guid: 24348fccddb66c8428bc675c2be66c63, type: 2}
   m_PrefabInternal: {fileID: 428546249}
+--- !u!1 &431506965 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 138212, guid: 24348fccddb66c8428bc675c2be66c63, type: 2}
+  m_PrefabInternal: {fileID: 303957913}
 --- !u!1 &481492305
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,6 +1297,25 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 800387158}
+--- !u!1 &872761528 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 160066, guid: 24348fccddb66c8428bc675c2be66c63, type: 2}
+  m_PrefabInternal: {fileID: 303957913}
+--- !u!114 &872761529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 872761528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b777f6ee1d404a4a9ab8da6e1f506a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisSpawnableObj: {fileID: 872761528}
+  cactusBase: {fileID: 1285272883}
+  cactusTop: {fileID: 431506965}
+  cactusWhole: {fileID: 137364466}
 --- !u!1 &937892773
 GameObject:
   m_ObjectHideFlags: 0
@@ -2932,6 +2960,10 @@ Terrain:
   m_BakeLightProbesForTrees: 1
   m_ScaleInLightmap: .0511999987
   m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!1 &1285272883 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 192582, guid: 24348fccddb66c8428bc675c2be66c63, type: 2}
+  m_PrefabInternal: {fileID: 303957913}
 --- !u!1 &1342132215
 GameObject:
   m_ObjectHideFlags: 0

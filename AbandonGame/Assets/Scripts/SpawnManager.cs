@@ -46,8 +46,7 @@ public class SpawnManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		spawnTimer += Time.deltaTime;
-        //spawnDelay = 20 * Mathf.Exp(-0.132f * playerRigid.velocity.magnitude);
-        spawnDelay = 2;
+        spawnDelay = 20 * Mathf.Exp(-0.132f * playerRigid.velocity.magnitude);
         if (spawnCount <= spawnMax)
         {
             if (spawnTimer >= spawnDelay)

@@ -12,14 +12,15 @@ public class Cactus : SpawnableSuperclass
     private Transform topOrigTransform;
     private Transform wholeOrigTransform;
     // Use this for initialization
-    new void Start()
+    protected override void Start()
     {
+        base.Start();
         topOrigTransform = cactusTop.transform;
         wholeOrigTransform = cactusWhole.transform;
-        base.Start();
         rb = thisSpawnableObj.GetComponentInChildren<Rigidbody>();
         rb.centerOfMass = Vector3.down * 2.3f;
 
+        baseObject = transform.parent.gameObject;
         rb.constraints = RigidbodyConstraints.FreezePosition;
     }
     new void Update()
@@ -63,9 +64,9 @@ public class Cactus : SpawnableSuperclass
     protected override void Reset()
     {
 
-        cactusTop.transform.position = topOrigTransform.position;
+        cactusTop.transform.position = topOrigTransform.localPosition;
         cactusTop.transform.rotation = topOrigTransform.rotation;
-        cactusWhole.transform.position = wholeOrigTransform.position;
+        cactusWhole.transform.position = wholeOrigTransform.localPosition;
         cactusWhole.transform.rotation = wholeOrigTransform.rotation;
         rb.velocity = Vector3.zero;
         rb.constraints = RigidbodyConstraints.FreezePosition;
